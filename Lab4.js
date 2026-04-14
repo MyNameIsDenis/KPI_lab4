@@ -12,6 +12,13 @@ class PriorityQueue {
     return { value: removed.value, priority: removed.priority };
   }
 
+  peek(identifier) {
+    if (this.queue.length === 0) return undefined;
+    const idx = this.findIndex(identifier);
+    const entry = this.queue[idx];
+    return { value: entry.value, priority: entry.priority };
+  }
+
 
   findIndex(identifier) {
     if (identifier === "oldest") return 0;
