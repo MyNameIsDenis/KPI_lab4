@@ -5,6 +5,13 @@ class PriorityQueue {
     this.queue.push({ value: item, priority: priority });
   }
 
+  dequeue(identifier) {
+    if (this.queue.length === 0) return undefined;
+    let idx = this.findIndex(identifier);
+    const [removed] = this.queue.splice(idx, 1);
+    return { value: removed.value, priority: removed.priority };
+  }
+
 
   findIndex(identifier) {
     if (identifier === "oldest") return 0;
